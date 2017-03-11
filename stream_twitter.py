@@ -47,7 +47,7 @@ class MyListener(StreamListener):
             with open(self.outfile, 'a') as f:
                 f.write(data)
                 print(data)
-                time.sleep(3000)
+                # time.sleep(300)
                 return True
         except BaseException as e:
             print("Error on_data: %s" % str(e))
@@ -56,7 +56,7 @@ class MyListener(StreamListener):
 
     def on_error(self, status):
         print(status)
-        time.sleep(3000)
+        time.sleep(900)
         return True
 
 

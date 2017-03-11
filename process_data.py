@@ -78,6 +78,7 @@ def convert_valid(one_char):
 def get_data(data_dir, query):
   query_fname = format_filename(query)
   outfile = "%s/stream_%s.json" % (data_dir, query_fname)
+  savefile = "%s/saved_%s.json" % (data_dir, query_fname)
 
   with open(outfile, 'r') as f:
     for line in f:
@@ -87,6 +88,8 @@ def get_data(data_dir, query):
       # print(tokens)
       # content = unicode(text.content.strip(codecs.BOM_UTF8), 'utf-8')
       print(json.dumps(text, indent=4))
+      with open(savefile, 'a') as s:
+        s.write(json.dumps(text, indent=4) + "\n\n")
 
 if __name__ == '__main__':
   parser = get_parser()
