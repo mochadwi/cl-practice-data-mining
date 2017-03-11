@@ -1,3 +1,4 @@
+import codecs
 import json
 import argparse
 import string
@@ -81,9 +82,10 @@ def get_data(data_dir, query):
   with open(outfile, 'r') as f:
     for line in f:
       tweet = json.loads(line)
-      text = tweet['text'].decode('unicode_escape').encode('ascii','ignore')
-      # tokens = preprocess(tweet['text'])
+      text = tweet['text']
+      tokens = preprocess(text)
       # print(tokens)
+      # content = unicode(text.content.strip(codecs.BOM_UTF8), 'utf-8')
       print(json.dumps(text, indent=4))
 
 if __name__ == '__main__':

@@ -15,6 +15,10 @@ import argparse
 import string
 import config
 import json
+# encoding=utf8
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 def get_parser():
     """Get parser for command line arguments."""
@@ -43,6 +47,7 @@ class MyListener(StreamListener):
             with open(self.outfile, 'a') as f:
                 f.write(data)
                 print(data)
+                time.sleep(3000)
                 return True
         except BaseException as e:
             print("Error on_data: %s" % str(e))
@@ -51,6 +56,7 @@ class MyListener(StreamListener):
 
     def on_error(self, status):
         print(status)
+        time.sleep(3000)
         return True
 
 
