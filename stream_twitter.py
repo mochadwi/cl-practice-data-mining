@@ -56,7 +56,7 @@ class MyListener(StreamListener):
 
     def on_error(self, status):
         print(status)
-        time.sleep(900)
+        # time.sleep(900)
         return True
 
 

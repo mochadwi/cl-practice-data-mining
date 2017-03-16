@@ -89,7 +89,7 @@ def get_data(data_dir, query):
       # content = unicode(text.content.strip(codecs.BOM_UTF8), 'utf-8')
       print(json.dumps(text, indent=4))
       with open(savefile, 'a') as s:
-        s.write(json.dumps(text, indent=4) + "\n\n")
+        s.write(json.dumps(text, indent=4) + "\n")
 
 if __name__ == '__main__':
   parser = get_parser()
